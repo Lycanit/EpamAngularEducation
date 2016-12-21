@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
+//import {Router} from '@angular/router';
 
 @Component({
-  selector: 'Login',
-  template: `
-	<div class="form-inline">
-		<div> I am a Login component </div> 
-		<div class='form-group'>
-			<div class="col-md-8"> Login: <input class='form-control' id='Login' type='text'> </div> 
-			<div class="col-md-8"> Password: <input class='form-control' type='text'> </div> 
-			<br />
-			<div class="col-md-8"> <input class='form-control' type='button' value='Enter'> </div> 
-		</div>
-		
-	</div>
-    `,
+  selector: 'login',
+  templateUrl: 'template_htmls/login.html',
+  //template: `<h3> MAIN </h3>`,
 
 })
-export class LoginComponent  { }
+export class LoginComponent  { 
+
+	//constructor(private router: Router){}
+	
+    //goNext(){
+        //this.router.navigate(['/courses']);
+    //}
+	
+}

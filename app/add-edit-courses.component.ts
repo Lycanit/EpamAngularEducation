@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'AddEditCourse',
+  selector: 'add-edit-course',
   template: `
     <div> I am an Add / Edit Course component </div> 
 	<div>
