@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import {Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
  
 export class LoginComponent  { 
 
-	//constructor(private router: Router){}
+	constructor(private router: Router){}
 	
-    //goNext(){
-        //this.router.navigate(['/courses']);
-    //}
+    goNext(){
+        this.router.navigate(['/courses']);
+    }
 	
 }

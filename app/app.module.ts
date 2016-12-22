@@ -23,13 +23,4 @@ const appRoutes: Routes =[
   bootstrap:    [ AppComponent ]
 })
 
-
-/*
-@NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ LoginComponent ],
-  bootstrap:    [ LoginComponent ]
-})
-*/
-
 export class AppModule { }

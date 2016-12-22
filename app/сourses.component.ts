@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'courses',
@@ -8,4 +9,17 @@ import { Component } from '@angular/core';
     div { font-size:40px; }
     `]
 })
-export class CoursesComponent  { }
+export class CoursesComponent  { 
+
+	constructor(private router: Router){}
+	
+    goNew(){
+        this.router.navigate(['/courses/new']);
+    }
+	
+	goEdit(id){
+        this.router.navigate(['/courses/' + id]);
+    }
+	
+
+}
