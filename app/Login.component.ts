@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'login',
-  templateUrl: 'template_htmls/login.html',
-  //template: `<h3> MAIN </h3>`,
-
-})
+  templateUrl: 'template_htmls/login.component.html',
+ })
+ 
 export class LoginComponent  { 
 
 	//constructor(private router: Router){}
