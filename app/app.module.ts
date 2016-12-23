@@ -12,7 +12,7 @@ const appRoutes: Routes =[
 	{ path: 'login', component: LoginComponent},
     { path: '', redirectTo: '/login', pathMatch:'full' },
     { path: 'courses', component: CoursesComponent, pathMatch:'full' },
-	{ path: 'courses/new', component: AddEditCourseComponent}
+	{ path: 'courses/new', component: AddEditCourseComponent},
 	{ path: 'courses/:id', component: AddEditCourseComponent}
 ];
  

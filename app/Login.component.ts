@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
  
 export class LoginComponent  { 
 
+	public seregasFail: string;
+	
 	constructor(private router: Router){}
 	
     goNext(){

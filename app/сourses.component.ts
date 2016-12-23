@@ -17,7 +17,7 @@ export class CoursesComponent  {
         this.router.navigate(['/courses/new']);
     }
 	
-	goEdit(id){
+	goEdit(id: any){
         this.router.navigate(['/courses/' + id]);
     }
 	

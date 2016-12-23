@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
  
 @Injectable()
 export class AuthorizationService{
- 
+ /*
     constructor(private http: Http){ }
      
     getUser() : Observable<User>{
@@ -21,4 +21,5 @@ export class AuthorizationService{
                             return user;
                         });
     }
+	*/
 }
