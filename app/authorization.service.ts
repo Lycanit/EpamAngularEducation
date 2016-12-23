@@ -5,8 +5,15 @@ import {User} from './user';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
  
-@Injectable()
+//@Injectable()
 export class AuthorizationService{
+	
+	
+	public check(userName: string, password: string){
+         
+		 return userName == "q" && password == "q";
+        //this.data.push(new Phone(name, price));
+    }
  /*
     constructor(private http: Http){ }
      
