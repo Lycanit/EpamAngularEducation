@@ -3,28 +3,42 @@
 		<div class="col-md-2">
 			
 			<fieldset>
+			
 				<div id="legend">
 					<legend class="">Login</legend>
 				</div>
-				<div class="form-group">
-					<label c for="username">Username</label>
-					<div class="controls">
-						<input type="text" placeholder="" class="form-control input-xlarge" [(ngModel)]="userName" #name="ngModel" required pattern="[a-zA-Z]*" >
+				
+				<div class="container">
+					<div [hidden]="isAuthorizeValid" class="alert alert-danger">
+						  Wrong Login or Password
 					</div>
-					<div [hidden]="name.valid || name.untouched" class="alert alert-danger">
-					  * enter
+					
+					<div class="row">
+						<label for="userName" class="col-sm-1">Username</label>
+						<div class="col-sm-3">
+							<input type="text" placeholder="" class="form-control input-xlarge" [(ngModel)]="userName" #name="ngModel" required pattern="[a-zA-Z]*" >
+						</div>
+						<div [hidden]="(name.untouched && !name.dirty) || name.model" class="alert col-sm-3" style="color:red">
+						  * enter
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="password">Password</label>
-					<div class="controls">
-						<input type="password" placeholder="" class="form-control input-xlarge">
+					
+					<div class="row">
+						<label for="password" class="col-sm-1">Password</label>
+						<div class="col-sm-3">
+							<input type="password" placeholder="" class="form-control input-xlarge" [(ngModel)]="password" #pass="ngModel" required pattern="[a-zA-Z0-9]*">
+						</div>
+						<div [hidden]="(pass.untouched && !pass.dirty) || pass.model" class="alert col-sm-3" style="color:red">
+						  * enter
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="controls">
-						<button (click)="goNext()" class="btn btn-success">Enter</button>
+					
+					<div class="row">
+						<div class="controls">
+							<button (click)="goNext(name.valid && pass.valid)" class="btn btn-success" [disabled]="!name.model || !pass.model" >Enter</button>
+						</div>
 					</div>
+					
 				</div>
 				
 			</fieldset>

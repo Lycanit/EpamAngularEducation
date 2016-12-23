@@ -7,14 +7,18 @@ import {Router} from '@angular/router';
  })
  
 export class LoginComponent  { 
-
-	public userName: string;
+	private isAuthorizeValid: boolean = true;
+	private userName: string;
 	private password: string;
 	
 	constructor(private router: Router){}
 	
-    goNext(){
-        this.router.navigate(['/courses']);
+    goNext(isValid: boolean){
+		this.isAuthorizeValid = isValid;
+		if (isValid)
+		{
+			this.router.navigate(['/courses']);
+		}
     }
 	
 }
