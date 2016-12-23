@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthorizationService} from './authorization.service';
+import {User} from './user';
 
 @Component({
 	selector: 'login',
@@ -11,6 +12,7 @@ import {AuthorizationService} from './authorization.service';
 export class LoginComponent  { 
 
 	private isAuthorizeValid: boolean = true;
+	private user: User;
 	private userName: string;
 	private password: string;
 	
@@ -20,14 +22,31 @@ export class LoginComponent  {
 		this.isAuthorizeValid = isValid;
 		if (isValid)
 		{
-			if (this.authorizationService.check(this.userName, this.password))
+
+			if (this.user)
 			{
-				this.router.navigate(['/courses']);
+				this.check();
 			}
 			else
 			{
-				this.isAuthorizeValid = false;
+				this.authorizationService.getUser().subscribe((data)=>
+				{
+					this.user = data;
+					this.check();
+				});
+				this.isAuthorizeValid = true;
 			}
+
+		}
+    }
+	
+	private check(){
+		alert("Name = " + this.user.Name);
+		alert("Pass = " + this.user.Password);
+		this.isAuthorizeValid = this.user.Name == this.userName && this.user.Password == this.password;
+        if (this.isAuthorizeValid)
+		{
+			this.router.navigate(['/courses']);
 		}
     }
 	

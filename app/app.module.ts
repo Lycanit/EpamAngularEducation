@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {Routes, RouterModule} from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule }   from '@angular/http';
 
 import { AppComponent }   from './app.component';
 import { LoginComponent }  from './login.component';
@@ -18,7 +19,7 @@ const appRoutes: Routes =[
  
 
 @NgModule({
-  imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule ],
+  imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
   declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent ],
   bootstrap:    [ AppComponent ]
 })

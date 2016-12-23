@@ -1,4 +1,4 @@
 export class User{
-	 public Login: string
+	 public Name: string
 	 public Password: string
 }
