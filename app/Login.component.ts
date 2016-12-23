@@ -8,7 +8,8 @@ import {Router} from '@angular/router';
  
 export class LoginComponent  { 
 
-	public seregasFail: string;
+	public userName: string;
+	private password: string;
 	
 	constructor(private router: Router){}
 	
