@@ -36,7 +36,10 @@ export class LoginComponent  {
 				});
 				this.isAuthorizeValid = true;
 			}
-
+		}
+		else
+		{
+			this.password = '';
 		}
     }
 	
@@ -47,6 +50,10 @@ export class LoginComponent  {
         if (this.isAuthorizeValid)
 		{
 			this.router.navigate(['/courses']);
+		}
+		else
+		{
+			this.password = '';
 		}
     }
 	
