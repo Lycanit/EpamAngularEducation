@@ -18,9 +18,9 @@
 						<div class="col-sm-3">
 							<input type="text" placeholder="" class="form-control input-xlarge" [(ngModel)]="userName" #name="ngModel" required pattern="[a-zA-Z]*" >
 						</div>
-						<div [hidden]="(name.untouched && !name.dirty) || name.model" class="alert col-sm-3" style="color:red">
+						<span [hidden]="(name.untouched && !name.dirty) || name.model" class="alert" style="color:red">
 						  * enter
-						</div>
+						</span>
 					</div>
 					
 					<div class="row">
@@ -28,9 +28,9 @@
 						<div class="col-sm-3">
 							<input type="password" placeholder="" class="form-control input-xlarge" [(ngModel)]="password" #pass="ngModel" required pattern="[a-zA-Z0-9]*">
 						</div>
-						<div [hidden]="(pass.untouched && !pass.dirty) || pass.model" class="alert col-sm-3" style="color:red">
+						<span [hidden]="(pass.untouched && !pass.dirty) || pass.model" class="alert" style="color:red">
 						  * enter
-						</div>
+						</span>
 					</div>
 					
 					<div class="row">

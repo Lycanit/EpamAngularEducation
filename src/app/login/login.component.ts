@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthorizationService} from './authorization.service';
-import {User} from './user';
+import {AuthorizationService} from '../authorization.service';
+import {User} from '../user';
 
 @Component({
 	selector: 'login',
-	templateUrl: 'template_htmls/login.component.html',
+	templateUrl: './login.component.html',
     providers: [AuthorizationService]
  })
  

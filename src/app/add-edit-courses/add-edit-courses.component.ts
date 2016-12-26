@@ -3,7 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'add-edit-course',
-  templateUrl: 'template_htmls/add-edit-courses.component.html',
+  templateUrl: './add-edit-courses.component.html',
 
   styles: [`
     div { font-size:40px; }

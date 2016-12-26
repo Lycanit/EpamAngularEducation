@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'courses',
-  templateUrl: 'template_htmls/courses.component.html',
+  templateUrl: './courses.component.html',
 
   styles: [`
     div { font-size:40px; }

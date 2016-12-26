@@ -5,9 +5,9 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule }   from '@angular/http';
 
 import { AppComponent }   from './app.component';
-import { LoginComponent }  from './login.component';
-import { CoursesComponent }  from './сourses.component';
-import { AddEditCourseComponent }  from './add-edit-courses.component';
+import { LoginComponent }  from './login/login.component';
+import { CoursesComponent }  from './courses/сourses.component';
+import { AddEditCourseComponent }  from './add-edit-courses/add-edit-courses.component';
 
 const appRoutes: Routes =[
 	{ path: 'login', component: LoginComponent},
