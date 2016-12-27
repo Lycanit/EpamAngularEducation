@@ -7,6 +7,7 @@
 		<p >Title: {{course.Title}}</p>
 		<p >Description: {{course.Description}}</p>
 		<p >Date: {{course.Date | date}}</p>
+		<p >Date: {{course.Duration | myTime}}</p>
 		
 	</div>
 	<div> Video course: 1h 28 min <input (click)="goEdit(1)" type='button' value='Edit'> <input type='button' value='Delete'> </div> 

@@ -8,6 +8,7 @@ import { AppComponent }   from './app.component';
 import { LoginComponent }  from './login/login.component';
 import { CoursesComponent }  from './courses/сourses.component';
 import { AddEditCourseComponent }  from './add-edit-courses/add-edit-courses.component';
+import { MyTimePipe }  from './my-time.pipe';
 
 const appRoutes: Routes =[
 	{ path: 'login', component: LoginComponent},
@@ -20,7 +21,7 @@ const appRoutes: Routes =[
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
-  declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent ],
+  declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, MyTimePipe ],
   bootstrap:    [ AppComponent ]
 })
 
