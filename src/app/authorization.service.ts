@@ -12,7 +12,6 @@ export class AuthorizationService{
     constructor(private http: Http){ }
     
     getUser() : Observable<User>{
-		alert("AuthorizationService.getUser");
         return this.http.get('authorization.json')
                         .map((resp:Response)=>{
                             let userData = resp.json();
