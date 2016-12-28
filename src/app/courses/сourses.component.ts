@@ -12,8 +12,6 @@ import { AuthorsService } from '../authors.service';
     styles: [`
         div { font-size:20px; }
         `],
-
-    providers: [CourseService, AuthorsService]
 })
 
 export class CoursesComponent  { 
@@ -22,7 +20,7 @@ export class CoursesComponent  {
 
 	constructor(private router: Router, private serv: CourseService){
         var obs = serv.Courses;
-        
+
         obs.subscribe(courses =>
             {
                 this.courses = courses;

@@ -13,7 +13,6 @@ import { Course } from '../course';
 		div { font-size:40px; }
 		`],
 
-	providers: [CourseService, AuthorsService]
 })
 
 export class AddEditCourseComponent  { 
