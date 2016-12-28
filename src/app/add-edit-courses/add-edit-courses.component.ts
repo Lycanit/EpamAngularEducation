@@ -27,20 +27,27 @@ export class AddEditCourseComponent  {
 		this.course = new Course();
 
         var id = activateRoute.snapshot.params['id'];
-		var obs = serv.getCourse(id);
-		
-		obs.subscribe(course =>
-            {
-                this.course = course;
-				this.status = '';
-				for (var authorInd in this.course.Authors){
-					var ind = this.authors.indexOf(this.course.Authors[authorInd]);
-					if (ind > -1){
-						this.authors.splice(ind, 1);
+		if (id)
+		{
+			var obs = serv.getCourse(id);
+			obs.subscribe(course =>
+				{
+					this.course = course;
+					this.status = '';
+					for (var authorInd in this.course.Authors){
+						var ind = this.authors.indexOf(this.course.Authors[authorInd]);
+						if (ind > -1){
+							this.authors.splice(ind, 1);
+						}
 					}
 				}
-            }
-        );
+        	);
+		}
+		else
+		{
+			this.status = "A NEW course";
+			this.course.Id = -1;
+		}
 
     }
 

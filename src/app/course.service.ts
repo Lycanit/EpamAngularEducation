@@ -47,6 +47,19 @@ export class CourseService{
 
     setCourse(course: Course)
     {
+        if (course.Id == -1)
+        {
+            var max = -1;
+            for (var c in this.courses)
+            {
+                var cur = this.courses[c];
+                if (cur.Id > max)
+                {
+                    max = cur.Id;
+                }
+            }
+            course.Id = max + 1;
+        }
         this.courses[course.Id] = course;
     }
 
