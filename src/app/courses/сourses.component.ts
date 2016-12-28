@@ -36,6 +36,26 @@ export class CoursesComponent  {
         this.router.navigate(['/courses/' + id]);
     }
 
+    goDelete(id: any){
+
+        var ind = -1;
+        for (var i = 0; i < this.courses.length; i++)
+        {
+            var c = this.courses[i];
+            if (c.Id == id)
+            {
+                ind = i;
+                break;
+            }
+        }
+        if (ind > -1)
+        {
+            this.courses.splice(ind, 1);
+            this.serv.delCourse(id);
+        }        
+
+    }
+
 
 	
 

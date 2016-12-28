@@ -63,4 +63,9 @@ export class CourseService{
         this.courses[course.Id] = course;
     }
 
+    delCourse(id: number)
+    {
+        delete this.courses[id];
+    }
+
 }

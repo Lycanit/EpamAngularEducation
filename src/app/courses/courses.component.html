@@ -3,7 +3,7 @@
 <div>
 	<div> Search: <input type='text'> <input type='button' value='Find'> <input (click)="goNew()" type='button' value='Add'> </div> 
 	<div *ngFor="let course of courses" style='border: 2px solid black; margin: 10px'>
-		<input (click)="goEdit(course.Id)" type='button' value='Edit'> <input type='button' value='Delete'>
+		<input (click)="goEdit(course.Id)" type='button' value='Edit'> <input type='button' value='Delete' (click)="goDelete(course.Id)">
 		<p> Id: {{course.Id}}</p>
 		<p> Title: {{course.Title}}</p>
 		<p> Description: {{course.Description}}</p>
