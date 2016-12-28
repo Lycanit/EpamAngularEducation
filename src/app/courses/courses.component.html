@@ -3,16 +3,18 @@
 <div>
 	<div> Search: <input type='text'> <input type='button' value='Find'> <input (click)="goNew()" type='button' value='Add'> </div> 
 	<div *ngFor="let course of courses" style='border: 2px solid black; margin: 10px'>
-		<p >Id: {{course.Id}}</p>
-		<p >Title: {{course.Title}}</p>
-		<p >Description: {{course.Description}}</p>
-		<p >Date: {{course.Date | date}}</p>
-		<p >Date: {{course.Duration | myTime}}</p>
-		
+		<input (click)="goEdit(course.Id)" type='button' value='Edit'> <input type='button' value='Delete'>
+		<p> Id: {{course.Id}}</p>
+		<p> Title: {{course.Title}}</p>
+		<p> Description: {{course.Description}}</p>
+		<p> Date: {{course.Date | date:"MM.dd.yyyy"}}</p>
+		<p> Duration: {{course.Duration | myTime}}</p>
+		<p> Authors: </p>
+		<ul>
+			<li *ngFor="let author of course.Authors"> 
+				{{author}}
+			</li>
+		</ul>
 	</div>
-	<div> Video course: 1h 28 min <input (click)="goEdit(1)" type='button' value='Edit'> <input type='button' value='Delete'> </div> 
-	<div> Video course: 0h 15 min <input (click)="goEdit(2)" type='button' value='Edit'> <input type='button' value='Delete'> </div> 
-	<div> Video course: 2h 15 min <input (click)="goEdit(3)" type='button' value='Edit'> <input type='button' value='Delete'> </div> 
-	
 	<a routerLink="/login" routerLinkActive="active">Go login</a>
 </div>

@@ -22,6 +22,7 @@ export class CoursesComponent  {
 
 	constructor(private router: Router, private serv: CourseService){
         var obs = serv.Courses;
+        
         obs.subscribe(courses =>
             {
                 this.courses = courses;

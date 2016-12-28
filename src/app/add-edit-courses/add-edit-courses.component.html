@@ -1,25 +1,28 @@
 <div> I am an Add / Edit Course component </div> 
-
+<div [hidden]="status == ''" [textContent]="'Status: ' + status"></div>
 <div>
-	<div> Title: <input type='text' value={{someText}}> </div> 
-	<div> Description: <input type='text'> </div> 
-	<div> Date: <input type='text'> </div> 
-	<div> Duration: <input type='text'> </div> 
+	<div> Title: <input type='text' [(ngModel)]="course.Title"> </div> 
+	<div> Description: <input type='text' [(ngModel)]="course.Description"> </div> 
+	<div> Date: <input type='text' [(ngModel)]="course.Date"> </div> 
+	<div> Duration: <input type='text' [(ngModel)]="course.Duration"> </div> 
+
 	<div> Authors: 
-		<select multiple='multiple'>
-		  <option>Smith</option>
-		  <option>Johnson</option>
-		  <option>William</option>
+		<select multiple='multiple' [(ngModel)]="aviableAuthors">
+		  <option  *ngFor="let author of authors" [value]="author">
+					{{author}}
+			</option>
 		</select> 
-		<input type='button' value='>'>
-		<input type='button' value='<'>
-		<select multiple='multiple'>
-		  <option>Miller</option>
-		  <option>Brown</option>
+		<input type='button' value='>' (click)="AddAuthors(aviableAuthors)">
+		<input type='button' value='<' (click)="RemoveAuthors(curAuthors)">
+		
+		<select multiple='multiple' [(ngModel)]="curAuthors">
+		  <option  *ngFor="let author of course.Authors" [value]="author">
+					{{author}}
+			</option>
 		</select> 
 	</div> 
-	<div> <input type='button' value='Save'> <input type='button' value='Cancel'> </div> 
+	<div> <input type='button' value='Save' (click)="Save()"> <input type='button' value='Cancel' (click)="Cancel()"> </div>
 	
-	<a routerLink="/login" routerLinkActive="active">Go login</a>
+	<a routerLink="/login" routerLinkActive="active">Go to login</a>
 </div>
 
