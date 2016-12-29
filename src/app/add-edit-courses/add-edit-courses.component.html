@@ -1,7 +1,10 @@
 <div class="row" style='border: 2px solid black; margin: 10px'> 
-	<div class="col-sm-9">
+	<div class="col-sm-3">
 		<img src='../logo_epam.jpg' />
 	</div> 	
+	<div class="col-sm-3">
+		<a routerLink="/courses" routerLinkActive="active" [textContent]="'Courses &gt; ' + course.Title"> </a>
+	</div> 
 	<div class="col-sm-3">
 		<p> logged as {{userName}}</p> 
 	</div> 
