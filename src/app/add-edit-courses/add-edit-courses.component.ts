@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../course.service';
 import { AuthorsService } from '../authors.service';
 import { Course } from '../course';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
 	selector: 'add-edit-course',
@@ -20,9 +21,15 @@ export class AddEditCourseComponent  {
 	private course: Course;
 	private authors: string[];
 	private status: string = "waiting for response ..."; 
-
+	private userName: string = '';
+	
     constructor(private router: Router, private activateRoute: ActivatedRoute, private serv: CourseService, authorsServ: AuthorsService){
 
+		if (LoginComponent.User)
+        {
+            this.userName = LoginComponent.User.Name;
+        }
+		
 		this.authors = authorsServ.Authors;
 		this.course = new Course();
 
@@ -83,6 +90,11 @@ export class AddEditCourseComponent  {
 		this.serv.setCourse(this.course);
 		this.router.navigate(['/courses']);
 	}
+
+	Logout(){
+        LoginComponent.User = null;
+        this.router.navigate(['/login']);
+    }
 
 
 }
