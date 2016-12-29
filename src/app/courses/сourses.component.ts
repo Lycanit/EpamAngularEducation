@@ -45,6 +45,14 @@ export class CoursesComponent  {
 
     goDelete(id: any){
 
+        if (confirm('Are you sure ?')) {
+            this.Del(id);
+        }
+        
+    }
+
+    private Del(id: any)
+    {
         var ind = -1;
         for (var i = 0; i < this.courses.length; i++)
         {
@@ -60,7 +68,6 @@ export class CoursesComponent  {
             this.courses.splice(ind, 1);
             this.serv.delCourse(id);
         }        
-
     }
 
     Logout(){
