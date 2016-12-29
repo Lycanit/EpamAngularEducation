@@ -5,6 +5,7 @@ import { CourseService } from '../course.service';
 import { AuthorsService } from '../authors.service';
 import { Course } from '../course';
 import { LoginComponent } from '../login/login.component';
+import { DateComponent } from '../date.component';
 
 @Component({
 	selector: 'add-edit-course',
@@ -29,7 +30,7 @@ export class AddEditCourseComponent  {
         {
             this.userName = LoginComponent.User.Name;
         }
-		
+
 		this.authors = authorsServ.Authors;
 		this.course = new Course();
 

@@ -8,6 +8,7 @@ import { AppComponent }   from './app.component';
 import { LoginComponent }  from './login/login.component';
 import { CoursesComponent }  from './courses/сourses.component';
 import { AddEditCourseComponent }  from './add-edit-courses/add-edit-courses.component';
+import { DateComponent }  from './date.component';
 import { MyTimePipe }  from './my-time.pipe';
 import { CourseService } from './course.service';
 import { AuthorsService } from './authors.service';
@@ -23,7 +24,7 @@ const appRoutes: Routes =[
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
-  declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, MyTimePipe ],
+  declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, MyTimePipe ],
   providers:    [ CourseService, AuthorsService],
   bootstrap:    [ AppComponent ]
 })
