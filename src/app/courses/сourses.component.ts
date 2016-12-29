@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Course } from '../course';
 import { CourseService } from '../course.service';
 import { AuthorsService } from '../authors.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
     selector: 'courses',
@@ -17,8 +18,14 @@ import { AuthorsService } from '../authors.service';
 export class CoursesComponent  { 
 
     private courses: Course[];
+    private userName: string = '';
 
 	constructor(private router: Router, private serv: CourseService){
+
+        if (LoginComponent.User)
+        {
+            this.userName = LoginComponent.User.Name;
+        }
         var obs = serv.Courses;
 
         obs.subscribe(courses =>
@@ -56,7 +63,10 @@ export class CoursesComponent  {
 
     }
 
-
+    Logout(){
+        LoginComponent.User = null;
+        this.router.navigate(['/login']);
+    }
 	
 
 }

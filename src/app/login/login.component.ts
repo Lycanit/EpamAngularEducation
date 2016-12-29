@@ -11,19 +11,23 @@ import {User} from '../user';
  
 export class LoginComponent  { 
 
+	public static User: User;
+
 	private isAuthorizeValid: boolean = true;
-	private user: User;
 	private userName: string;
 	private password: string;
 	
-	constructor(private router: Router, private authorizationService: AuthorizationService){}
+	constructor(private router: Router, private authorizationService: AuthorizationService)
+	{
+		//alert("ctor LoginComponent");
+	}
 	
     goNext(isValid: boolean){
 		this.isAuthorizeValid = isValid;
 		if (isValid)
 		{
 
-			if (this.user)
+			if (LoginComponent.User)
 			{
 				this.check();
 			}
@@ -31,7 +35,7 @@ export class LoginComponent  {
 			{
 				this.authorizationService.getUser().subscribe((data)=>
 				{
-					this.user = data;
+					LoginComponent.User = data;
 					this.check();
 				});
 				this.isAuthorizeValid = true;
@@ -44,9 +48,8 @@ export class LoginComponent  {
     }
 	
 	private check(){
-		alert("Name = " + this.user.Name);
-		alert("Pass = " + this.user.Password);
-		this.isAuthorizeValid = this.user.Name == this.userName && this.user.Password == this.password;
+
+		this.isAuthorizeValid = LoginComponent.User.Name == this.userName && LoginComponent.User.Password == this.password;
         if (this.isAuthorizeValid)
 		{
 			this.router.navigate(['/courses']);
@@ -55,6 +58,7 @@ export class LoginComponent  {
 		{
 			this.password = '';
 		}
+
     }
 	
 }

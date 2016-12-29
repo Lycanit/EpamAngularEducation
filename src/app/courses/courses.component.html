@@ -1,4 +1,14 @@
-<div style='border: 2px solid black; margin: 10px'> <img src='../logo_epam.jpg' /> </div>  
+<div class="row" style='border: 2px solid black; margin: 10px'> 
+	<div class="col-sm-9">
+		<img src='../logo_epam.jpg' />
+	</div> 	
+	<div class="col-sm-3">
+		<p> logged as {{userName}}</p> 
+	</div> 
+	<div class="col-sm-3">
+		<input (click)="Logout()" type='button' value='Logout'>
+	</div> 
+</div>  
 
 <div>
 	<div> Search: <input type='text'> <input type='button' value='Find'> <input (click)="goNew()" type='button' value='Add'> </div> 

@@ -13,18 +13,18 @@ import { CourseService } from './course.service';
 import { AuthorsService } from './authors.service';
 
 const appRoutes: Routes =[
-	{ path: 'login', component: LoginComponent},
+	  { path: 'login', component: LoginComponent},
     { path: '', redirectTo: '/login', pathMatch:'full' },
     { path: 'courses', component: CoursesComponent, pathMatch:'full' },
-	{ path: 'courses/new', component: AddEditCourseComponent},
-	{ path: 'courses/:id', component: AddEditCourseComponent}
+	  { path: 'courses/new', component: AddEditCourseComponent},
+	  { path: 'courses/:id', component: AddEditCourseComponent}
 ];
  
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
   declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, MyTimePipe ],
-  providers:    [CourseService, AuthorsService],
+  providers:    [ CourseService, AuthorsService],
   bootstrap:    [ AppComponent ]
 })
 
