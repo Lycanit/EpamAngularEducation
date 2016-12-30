@@ -9,8 +9,8 @@ export class MyTimePipe implements PipeTransform {
     if (value < 0) return '';     
 
     let sec = value % 60;
-    let min = Math.round(value % 3600 / 60);
-    let hour = Math.round(value / 3600);
+    let min = Math.floor(value % 3600 / 60);
+    let hour = Math.floor(value / 3600);
 
     let ret = '';
     if (hour > 0)
