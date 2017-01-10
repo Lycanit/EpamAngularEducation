@@ -1,4 +1,4 @@
-import { Output, Component, EventEmitter } from '@angular/core';
+import { Output, Component, EventEmitter, Input } from '@angular/core';
 
 @Component({
 	selector: 'my-date',
@@ -8,15 +8,12 @@ import { Output, Component, EventEmitter } from '@angular/core';
  export class DateComponent  { 
 
     @Output() onDateUpdated = new EventEmitter();
-	public dataString: string = '';
+	@Input() public dataString: string = '';
     private specialKeys: string[] = ['ArrowLeft', 'ArrowRight', 'Delete', 'Backspace', 'Home', 'End'];
     private numbers: string[] = '0123456789'.split('');
 
     keyDown(e)
     {
-        // console.log(e.target.selectionStart);
-        // console.log(this.dataString);
-        // console.log(e);
         let ctrlV = e.ctrlKey && e.code == 'KeyV';
         let isSpecial = ctrlV || this.specialKeys.indexOf(e.code) > -1;
         if (isSpecial)

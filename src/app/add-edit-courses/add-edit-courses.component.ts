@@ -5,7 +5,7 @@ import { CourseService } from '../course.service';
 import { AuthorsService } from '../authors.service';
 import { Course } from '../course';
 import { LoginComponent } from '../login/login.component';
-import { DateComponent } from '../date.component';
+import { DateComponent } from '../input-components/date.component';
 
 @Component({
 	selector: 'add-edit-course',
@@ -23,6 +23,7 @@ export class AddEditCourseComponent  {
 	private authors: string[];
 	private status: string = "waiting for response ..."; 
 	private userName: string = '';
+	private dateString: string = '';
 
     constructor(private router: Router, private activateRoute: ActivatedRoute, private serv: CourseService, authorsServ: AuthorsService){
 
@@ -88,8 +89,17 @@ export class AddEditCourseComponent  {
 
 	Save()
 	{
-		this.serv.setCourse(this.course);
-		this.router.navigate(['/courses']);
+		let checkDate = Date.parse(this.dateString);
+		if (isNaN(checkDate))
+		{
+			alert("Date is not valid");
+		}
+		else
+		{
+			this.course.Date = new Date(this.dateString);
+			this.serv.setCourse(this.course);
+			this.router.navigate(['/courses']);
+		}
 	}
 
 	Logout(){
@@ -99,7 +109,7 @@ export class AddEditCourseComponent  {
 
 	handleDateUpdated(e)
 	{
-		this.course.Date = new Date(e);
+		this.dateString = e;
 		console.log(e);
 	}
 
