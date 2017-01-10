@@ -62,6 +62,8 @@ export class AddEditCourseComponent  {
 		}
 		else
 		{
+			this.dateString = this.course.Date.toString();
+			this.timeString = this.course.Duration.toString();
 			this.status = "A NEW course";
 			this.course.Id = -1;
 		}
@@ -98,7 +100,7 @@ export class AddEditCourseComponent  {
 	Save()
 	{
 		let checkDate = Date.parse(this.dateString);
-		if (isNaN(checkDate))
+		if (!(checkDate))
 		{
 			alert("Date is not valid");
 			return;
