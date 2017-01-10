@@ -21,11 +21,15 @@ export class CoursesComponent  {
     private userName: string = '';
 
 	constructor(private router: Router, private serv: CourseService){
-
+		
         if (LoginComponent.User)
         {
             this.userName = LoginComponent.User.Name;
         }
+        else
+		{
+			this.router.navigate(['/login']);
+		}
         var obs = serv.Courses;
 
         obs.subscribe(courses =>

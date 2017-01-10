@@ -33,6 +33,10 @@ export class AddEditCourseComponent  {
         {
             this.userName = LoginComponent.User.Name;
         }
+		else
+		{
+			this.router.navigate(['/login']);
+		}
 
 		this.authors = authorsServ.Authors;
 		this.course = new Course();

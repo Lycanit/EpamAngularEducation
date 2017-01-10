@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CoursesComponent } from './courses/сourses.component';
@@ -29,7 +31,7 @@ const appRoutes: Routes =[
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
   declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, MyTimePipe ],
-  providers:    [ CourseService, AuthorsService],
+  providers:    [ CourseService, AuthorsService, CookieService ],
   bootstrap:    [ AppComponent ]
 })
 
