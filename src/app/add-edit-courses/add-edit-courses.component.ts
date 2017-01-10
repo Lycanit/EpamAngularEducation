@@ -119,13 +119,11 @@ export class AddEditCourseComponent  {
 	handleDateUpdated(e)
 	{
 		this.dateString = e;
-		console.log(e);
 	}
 
 	handleTimeUpdated(e)
 	{
 		this.timeString = e;
-		console.log(e);
 	}
 
 
