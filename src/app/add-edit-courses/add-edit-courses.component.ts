@@ -23,7 +23,6 @@ export class AddEditCourseComponent  {
 	private authors: string[];
 	private status: string = "waiting for response ..."; 
 	private userName: string = '';
-	private justString: string = '';
 
     constructor(private router: Router, private activateRoute: ActivatedRoute, private serv: CourseService, authorsServ: AuthorsService){
 
@@ -89,7 +88,6 @@ export class AddEditCourseComponent  {
 
 	Save()
 	{
-		alert(this.justString);
 		this.serv.setCourse(this.course);
 		this.router.navigate(['/courses']);
 	}
@@ -99,8 +97,9 @@ export class AddEditCourseComponent  {
         this.router.navigate(['/login']);
     }
 
-	handleUserUpdated(e)
+	handleDateUpdated(e)
 	{
+		this.course.Date = new Date(e);
 		console.log(e);
 	}
 
