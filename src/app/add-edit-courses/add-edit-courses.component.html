@@ -18,7 +18,8 @@
 	<div> Title: <input type='text' [(ngModel)]="course.Title"> </div> 
 	<div> Description: <input type='text' [(ngModel)]="course.Description"> </div> 
 	<div> Date: <my-date (onDateUpdated)="handleDateUpdated($event)" [dataString]="course.Date | date:'MM.dd.yyyy'"> </my-date> </div> 
-	<div> Duration: <input type='text' [(ngModel)]="course.Duration"> </div> 
+	<!-- <div> Duration: <input type='text' [(ngModel)]="course.Duration"> </div> -->
+	<div> Duration: <my-time (onTimeUpdated)="handleTimeUpdated($event)" [timeString]="course.Duration" [time]="course.Duration"> </my-time> </div> 
 
 	<div> Authors: 
 		<select multiple='multiple' [(ngModel)]="aviableAuthors">

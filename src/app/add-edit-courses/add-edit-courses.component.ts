@@ -6,6 +6,7 @@ import { AuthorsService } from '../authors.service';
 import { Course } from '../course';
 import { LoginComponent } from '../login/login.component';
 import { DateComponent } from '../input-components/date.component';
+import { TimeComponent } from '../input-components/time.component';
 
 @Component({
 	selector: 'add-edit-course',
@@ -24,6 +25,7 @@ export class AddEditCourseComponent  {
 	private status: string = "waiting for response ..."; 
 	private userName: string = '';
 	private dateString: string = '';
+	private timeString: string = '';
 
     constructor(private router: Router, private activateRoute: ActivatedRoute, private serv: CourseService, authorsServ: AuthorsService){
 
@@ -42,6 +44,8 @@ export class AddEditCourseComponent  {
 			obs.subscribe(course =>
 				{
 					this.course = course;
+					this.dateString = this.course.Date.toString();
+					this.timeString = this.course.Duration.toString();
 					this.status = '';
 					for (var authorInd in this.course.Authors){
 						var ind = this.authors.indexOf(this.course.Authors[authorInd]);
@@ -93,13 +97,18 @@ export class AddEditCourseComponent  {
 		if (isNaN(checkDate))
 		{
 			alert("Date is not valid");
+			return;
 		}
-		else
+		let checkTime = Number(this.timeString);
+		if (isNaN(checkTime))
 		{
-			this.course.Date = new Date(this.dateString);
-			this.serv.setCourse(this.course);
-			this.router.navigate(['/courses']);
+			alert("Time is not valid");
+			return;
 		}
+		this.course.Duration = checkTime;
+		this.course.Date = new Date(this.dateString);
+		this.serv.setCourse(this.course);
+		this.router.navigate(['/courses']);
 	}
 
 	Logout(){
@@ -110,6 +119,12 @@ export class AddEditCourseComponent  {
 	handleDateUpdated(e)
 	{
 		this.dateString = e;
+		console.log(e);
+	}
+
+	handleTimeUpdated(e)
+	{
+		this.timeString = e;
 		console.log(e);
 	}
 
