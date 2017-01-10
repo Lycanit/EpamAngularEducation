@@ -2,7 +2,7 @@ import { Output, Component, EventEmitter, Input } from '@angular/core';
 
 @Component({
 	selector: 'my-time',
-	template: `<input type='text' [(ngModel)]="timeString" (keydown)="keyDown($event)"> <p [textContent]="time | myTime"> </p>`
+	template: `<input class="col-sm-2" type='text' [(ngModel)]="timeString" (keydown)="keyDown($event)"> <div class="col-sm-4"> <p [textContent]="time | myTime"> </p> </div>`
  })
 
  export class TimeComponent  { 

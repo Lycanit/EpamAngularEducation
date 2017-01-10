@@ -13,7 +13,7 @@ import { TimeComponent } from '../input-components/time.component';
 	templateUrl: './add-edit-courses.component.html',
 
 	styles: [`
-		div { font-size:40px; }
+		div { font-size:30px; }
 		`],
 
 })
