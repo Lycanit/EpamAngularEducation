@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthorizationService} from '../authorization.service';
-import {User} from '../user';
+import { Router } from '@angular/router';
+import { CookieService } from 'angular2-cookie/core';
+
+import { AuthorizationService } from '../authorization.service';
+import { User } from '../user';
 
 @Component({
 	selector: 'login',
@@ -17,9 +19,9 @@ export class LoginComponent  {
 	private userName: string;
 	private password: string;
 	
-	constructor(private router: Router, private authorizationService: AuthorizationService)
+	constructor(private router: Router, private authorizationService: AuthorizationService, private cookieService:CookieService)
 	{
-		//alert("ctor LoginComponent");
+         
 	}
 	
     goNext(isValid: boolean){
@@ -52,6 +54,8 @@ export class LoginComponent  {
 		this.isAuthorizeValid = LoginComponent.User.Name == this.userName && LoginComponent.User.Password == this.password;
         if (this.isAuthorizeValid)
 		{
+			this.cookieService.put('login', this.userName);
+			this.cookieService.put('password', this.password);
 			this.router.navigate(['/courses']);
 		}
 		else

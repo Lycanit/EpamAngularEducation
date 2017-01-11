@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'angular2-cookie/core';
 
 import { Course } from '../course';
 import { CourseService } from '../course.service';
 import { AuthorsService } from '../authors.service';
 import { LoginComponent } from '../login/login.component';
+
 
 @Component({
     selector: 'courses',
@@ -20,7 +22,7 @@ export class CoursesComponent  {
     private courses: Course[];
     private userName: string = '';
 
-	constructor(private router: Router, private serv: CourseService){
+	constructor(private router: Router, private serv: CourseService, private cookieService:CookieService){
 		
         if (LoginComponent.User)
         {
@@ -75,6 +77,8 @@ export class CoursesComponent  {
     }
 
     Logout(){
+        this.cookieService.remove('login');
+		this.cookieService.remove('password');
         LoginComponent.User = null;
         this.router.navigate(['/login']);
     }

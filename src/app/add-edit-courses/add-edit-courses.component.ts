@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'angular2-cookie/core';
 
 import { CourseService } from '../course.service';
 import { AuthorsService } from '../authors.service';
@@ -7,6 +8,7 @@ import { Course } from '../course';
 import { LoginComponent } from '../login/login.component';
 import { DateComponent } from '../input-components/date.component';
 import { TimeComponent } from '../input-components/time.component';
+
 
 @Component({
 	selector: 'add-edit-course',
@@ -27,7 +29,7 @@ export class AddEditCourseComponent  {
 	private dateString: string = '';
 	private timeString: string = '';
 
-    constructor(private router: Router, private activateRoute: ActivatedRoute, private serv: CourseService, authorsServ: AuthorsService){
+    constructor(private router: Router, private activateRoute: ActivatedRoute, private serv: CourseService, authorsServ: AuthorsService, private cookieService:CookieService){
 
 		if (LoginComponent.User)
         {
@@ -118,6 +120,8 @@ export class AddEditCourseComponent  {
 	}
 
 	Logout(){
+		this.cookieService.remove('login');
+		this.cookieService.remove('password');
         LoginComponent.User = null;
         this.router.navigate(['/login']);
     }
