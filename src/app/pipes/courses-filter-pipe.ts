@@ -1,5 +1,5 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
-import { Course } from './course';
+import { Course } from '../course';
 
 @Pipe({
     name: 'coursesFilterPipe'
