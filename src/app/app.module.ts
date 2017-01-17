@@ -18,22 +18,22 @@ import { CoursesFilterPipe } from './courses-filter-pipe';
 import { CourseService } from './course.service';
 import { AuthorsService } from './authors.service';
 
-import { MyGuard }   from './my-guard';
+import { MyGuard } from './my-guard';
 
-const appRoutes: Routes =[
-	  { path: 'login', component: LoginComponent},
-    { path: '', redirectTo: '/login', pathMatch:'full' },
-    { path: 'courses', component: CoursesComponent, pathMatch:'full', canActivate: [MyGuard] },
-	  { path: 'courses/new', component: AddEditCourseComponent, canActivate: [MyGuard] },
-	  { path: 'courses/:id', component: AddEditCourseComponent, canActivate: [MyGuard] }
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'courses', component: CoursesComponent, pathMatch: 'full', canActivate: [MyGuard] },
+  { path: 'courses/new', component: AddEditCourseComponent, canActivate: [MyGuard] },
+  { path: 'courses/:id', component: AddEditCourseComponent, canActivate: [MyGuard] }
 ];
- 
+
 
 @NgModule({
-  imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
-  declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, MyTimePipe, CoursesFilterPipe ],
-  providers:    [ CourseService, AuthorsService, CookieService, MyGuard ],
-  bootstrap:    [ AppComponent ]
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule],
+  declarations: [AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, MyTimePipe, CoursesFilterPipe],
+  providers: [CourseService, AuthorsService, CookieService, MyGuard],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }

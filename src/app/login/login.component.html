@@ -1,48 +1,45 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-2">
-			
+
 			<fieldset>
-			
+
 				<div id="legend">
 					<legend class="">Login</legend>
 				</div>
-				
+
 				<div class="container">
 					<div [hidden]="isAuthorizeValid" class="alert alert-danger">
-						  Wrong Login or Password
+						Wrong Login or Password
 					</div>
-					
+
 					<div class="row">
 						<label for="userName" class="col-sm-1">Username</label>
 						<div class="col-sm-3">
-							<input type="text" placeholder="" class="form-control input-xlarge" [(ngModel)]="userName" #name="ngModel" required pattern="[a-zA-Z]*" >
+							<input type="text" placeholder="" class="form-control input-xlarge" [(ngModel)]="userName" #name="ngModel" required pattern="[a-zA-Z]*">
 						</div>
-						<span [hidden]="(name.untouched && !name.dirty) || name.model" class="alert" style="color:red">
-						  * enter
-						</span>
-					</div>
-					
-					<div class="row">
-						<label for="password" class="col-sm-1">Password</label>
-						<div class="col-sm-3">
-							<input type="password" placeholder="" class="form-control input-xlarge" [(ngModel)]="password" #pass="ngModel" required pattern="[a-zA-Z0-9]*">
-						</div>
-						<span [hidden]="(pass.untouched && !pass.dirty) || pass.model" class="alert" style="color:red">
-						  * enter
-						</span>
-					</div>
-					
-					<div class="row">
-						<div class="controls">
-							<button (click)="goNext(name.valid && pass.valid)" class="btn btn-success" [disabled]="!name.model || !pass.model" >Enter</button>
-						</div>
-					</div>
-					
-				</div>
-				
-			</fieldset>
-				
-		</div>
+						<span [hidden]="(name.untouched && !name.dirty) || name.model" class="alert" style="color:red"> * enter </span>
+</div>
+
+<div class="row">
+	<label for="password" class="col-sm-1">Password</label>
+	<div class="col-sm-3">
+		<input type="password" placeholder="" class="form-control input-xlarge" [(ngModel)]="password" #pass="ngModel" required pattern="[a-zA-Z0-9]*">
 	</div>
+	<span [hidden]="(pass.untouched && !pass.dirty) || pass.model" class="alert" style="color:red"> * enter
+</span>
+</div>
+
+<div class="row">
+	<div class="controls">
+		<button (click)="goNext(name.valid && pass.valid)" class="btn btn-success" [disabled]="!name.model || !pass.model">Enter</button>
+	</div>
+</div>
+
+</div>
+
+</fieldset>
+
+</div>
+</div>
 </div>

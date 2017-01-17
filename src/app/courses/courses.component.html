@@ -1,30 +1,31 @@
-<div class="row" style='border: 2px solid black; margin: 10px'> 
-	<div class="col-sm-9">
-		<img src='../logo_epam.jpg' />
-	</div> 	
-	<div class="col-sm-3">
-		<p> logged as {{userName}}</p> 
-	</div> 
-	<div class="col-sm-3">
-		<input (click)="Logout()" type='button' value='Logout'>
-	</div> 
-</div>  
+<div class="row" style='border: 2px solid black; margin: 10px'>
+<div class="col-sm-9">
+	<img src='../logo_epam.jpg' />
+</div>
+<div class="col-sm-3">
+	<p> logged as {{userName}}</p>
+</div>
+<div class="col-sm-3">
+	<input (click)="Logout()" type='button' value='Logout'>
+</div>
+</div>
 
 <div>
-	<div> Search: <input type='text' [(ngModel)]="search"> <input type='button' value='Find'> <input (click)="goNew()" type='button' value='Add'> </div> 
+	<div> Search: <input type='text' [(ngModel)]="search"> <input type='button' value='Find'> <input (click)="goNew()" type='button'
+			value='Add'> </div>
 	<div *ngFor="let course of (courses | coursesFilterPipe:search)" style='border: 2px solid black; margin: 10px'>
-		<input (click)="goEdit(course.Id)" type='button' value='Edit'> <input type='button' value='Delete' (click)="goDelete(course.Id)">
-		<p> Id: {{course.Id}}</p>
-		<p> Title: {{course.Title}}</p>
-		<p> Description: {{course.Description}}</p>
-		<p> Date: {{course.Date | date:"MM.dd.yyyy"}}</p>
-		<p> Duration: {{course.Duration | myTime}}</p>
-		<p> Authors: </p>
-		<ul>
-			<li *ngFor="let author of course.Authors"> 
-				{{author}}
-			</li>
-		</ul>
-	</div>
-	<a routerLink="/login" routerLinkActive="active">Go login</a>
+<input (click)="goEdit(course.Id)" type='button' value='Edit'> <input type='button' value='Delete' (click)="goDelete(course.Id)">
+<p> Id: {{course.Id}}</p>
+<p> Title: {{course.Title}}</p>
+<p> Description: {{course.Description}}</p>
+<p> Date: {{course.Date | date:"MM.dd.yyyy"}}</p>
+<p> Duration: {{course.Duration | myTime}}</p>
+<p> Authors: </p>
+<ul>
+	<li *ngFor="let author of course.Authors">
+		{{author}}
+	</li>
+</ul>
+</div>
+<a routerLink="/login" routerLinkActive="active">Go login</a>
 </div>

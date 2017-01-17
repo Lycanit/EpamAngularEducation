@@ -11,83 +11,76 @@ import { LoginComponent } from '../login/login.component';
 @Component({
     selector: 'courses',
     templateUrl: './courses.component.html',
-  
+
     styles: [`
         div { font-size:20px; }
         `],
 })
 
-export class CoursesComponent  { 
+export class CoursesComponent {
 
     private courses: Course[];
     private userName: string = '';
     private search: string = '';
 
-	constructor(private router: Router, private serv: CourseService, private cookieService:CookieService){
-		
-        if (LoginComponent.User)
-        {
+    constructor(private router: Router, private serv: CourseService, private cookieService: CookieService) {
+
+        if (LoginComponent.User) {
             this.userName = LoginComponent.User.Name;
         }
-        else
-		{
-			this.router.navigate(['/login']);
-		}
+        else {
+            this.router.navigate(['/login']);
+        }
         var obs = serv.Courses;
 
-        obs.subscribe(courses =>
-            {
-                this.courses = courses;
-            }
+        obs.subscribe(courses => {
+            this.courses = courses;
+        }
         );
     }
-	
-    goNew(){
+
+    goNew() {
         this.router.navigate(['/courses/new']);
     }
-	
-	goEdit(id: any){
+
+    goEdit(id: any) {
         this.router.navigate(['/courses/' + id]);
     }
 
-    goDelete(id: any){
+    goDelete(id: any) {
 
         if (confirm('Are you sure ?')) {
             this.Del(id);
         }
-        
+
     }
 
-    private Del(id: any)
-    {
+    private Del(id: any) {
         var ind = -1;
-        for (var i = 0; i < this.courses.length; i++)
-        {
+        for (var i = 0; i < this.courses.length; i++) {
             var c = this.courses[i];
-            if (c.Id == id)
-            {
+            if (c.Id == id) {
                 ind = i;
                 break;
             }
         }
-        if (ind > -1)
-        {
+        if (ind > -1) {
             this.courses.splice(ind, 1);
             this.serv.delCourse(id);
-        }        
+        }
     }
 
-    Logout(){
+    Logout() {
         this.cookieService.remove('login');
-		this.cookieService.remove('password');
+        this.cookieService.remove('password');
         LoginComponent.User = null;
         this.router.navigate(['/login']);
     }
 
-    goSearch(){
-        
+    goSearch() {
+
     }
 
-	
+
 
 }
