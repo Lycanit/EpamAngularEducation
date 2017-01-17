@@ -11,8 +11,8 @@
 </div>  
 
 <div>
-	<div> Search: <input type='text'> <input type='button' value='Find'> <input (click)="goNew()" type='button' value='Add'> </div> 
-	<div *ngFor="let course of courses" style='border: 2px solid black; margin: 10px'>
+	<div> Search: <input type='text' [(ngModel)]="search"> <input type='button' value='Find'> <input (click)="goNew()" type='button' value='Add'> </div> 
+	<div *ngFor="let course of (courses | coursesFilterPipe:search)" style='border: 2px solid black; margin: 10px'>
 		<input (click)="goEdit(course.Id)" type='button' value='Edit'> <input type='button' value='Delete' (click)="goDelete(course.Id)">
 		<p> Id: {{course.Id}}</p>
 		<p> Title: {{course.Title}}</p>

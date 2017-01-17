@@ -21,6 +21,7 @@ export class CoursesComponent  {
 
     private courses: Course[];
     private userName: string = '';
+    private search: string = '';
 
 	constructor(private router: Router, private serv: CourseService, private cookieService:CookieService){
 		
@@ -82,6 +83,11 @@ export class CoursesComponent  {
         LoginComponent.User = null;
         this.router.navigate(['/login']);
     }
+
+    goSearch(){
+        
+    }
+
 	
 
 }

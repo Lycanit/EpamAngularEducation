@@ -13,6 +13,7 @@ import { DateComponent } from './input-components/date.component';
 import { TimeComponent } from './input-components/time.component';
 
 import { MyTimePipe } from './my-time.pipe';
+import { CoursesFilterPipe } from './courses-filter-pipe';
 
 import { CourseService } from './course.service';
 import { AuthorsService } from './authors.service';
@@ -23,14 +24,14 @@ const appRoutes: Routes =[
 	  { path: 'login', component: LoginComponent},
     { path: '', redirectTo: '/login', pathMatch:'full' },
     { path: 'courses', component: CoursesComponent, pathMatch:'full', canActivate: [MyGuard] },
-	  { path: 'courses/new', component: AddEditCourseComponent},
-	  { path: 'courses/:id', component: AddEditCourseComponent}
+	  { path: 'courses/new', component: AddEditCourseComponent, canActivate: [MyGuard] },
+	  { path: 'courses/:id', component: AddEditCourseComponent, canActivate: [MyGuard] }
 ];
  
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
-  declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, MyTimePipe ],
+  declarations: [ AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, MyTimePipe, CoursesFilterPipe ],
   providers:    [ CourseService, AuthorsService, CookieService, MyGuard ],
   bootstrap:    [ AppComponent ]
 })
