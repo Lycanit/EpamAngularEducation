@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { AuthorsService } from './authors.service';
-import { Course } from './course';
+import { Course } from '../course';
 
 
 @Injectable()

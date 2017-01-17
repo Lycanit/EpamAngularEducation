@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'angular2-cookie/core';
 
-import { AuthorizationService } from '../authorization.service';
+import { AuthorizationService } from '../services/authorization.service';
 import { User } from '../user';
 
 @Component({

@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { CookieService } from 'angular2-cookie/core';
 
 import { Course } from '../course';
-import { CourseService } from '../course.service';
-import { AuthorsService } from '../authors.service';
+import { CourseService } from '../services/course.service';
+import { AuthorsService } from '../services/authors.service';
 import { LoginComponent } from '../login/login.component';
 
 

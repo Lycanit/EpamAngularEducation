@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'angular2-cookie/core';
 
-import { CourseService } from '../course.service';
-import { AuthorsService } from '../authors.service';
+import { CourseService } from '../services/course.service';
+import { AuthorsService } from '../services/authors.service';
 import { Course } from '../course';
 import { LoginComponent } from '../login/login.component';
 import { DateComponent } from '../input-components/date.component';

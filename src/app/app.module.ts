@@ -12,11 +12,11 @@ import { AddEditCourseComponent } from './add-edit-courses/add-edit-courses.comp
 import { DateComponent } from './input-components/date.component';
 import { TimeComponent } from './input-components/time.component';
 
-import { MyTimePipe } from './my-time.pipe';
-import { CoursesFilterPipe } from './courses-filter-pipe';
+import { MyTimePipe } from './pipes/my-time.pipe';
+import { CoursesFilterPipe } from './pipes/courses-filter-pipe';
 
-import { CourseService } from './course.service';
-import { AuthorsService } from './authors.service';
+import { CourseService } from './services/course.service';
+import { AuthorsService } from './services/authors.service';
 
 import { MyGuard } from './my-guard';
 
