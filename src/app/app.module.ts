@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { ErrorHandler } from '@angular/core/index';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +21,8 @@ import { AuthorsService } from './services/authors.service';
 
 import { MyGuard } from './my-guard';
 
+import { GlobalErrorHandler } from './global-error-handler';
+
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,7 +35,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule],
   declarations: [AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, MyTimePipe, CoursesFilterPipe],
-  providers: [CourseService, AuthorsService, CookieService, MyGuard],
+  providers: [CourseService, AuthorsService, CookieService, MyGuard, { provide: ErrorHandler, useClass: GlobalErrorHandler }],
   bootstrap: [AppComponent]
 })
 

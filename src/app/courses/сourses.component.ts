@@ -77,8 +77,8 @@ export class CoursesComponent {
         this.router.navigate(['/login']);
     }
 
-    goSearch() {
-
+    goError() {
+        throw new EvalError('my test error');
     }
 
 
