@@ -23,7 +23,22 @@ import { MyGuard } from './my-guard';
 
 import { GlobalErrorHandler } from './global-error-handler';
 
+import {
+  createStore,
+  Store,
+  StoreEnhancer
+} from 'redux';
+import { counterReducer } from './todos/counter-reducer';
+import { AppState } from './todos/app-state';
+import { AppStore } from './todos/app-store';
+import CounterComponent from './todos/app-Counter';
+
+let store: Store<AppState> = createStore<AppState>(
+  counterReducer
+);
+
 const appRoutes: Routes = [
+
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'courses', component: CoursesComponent, pathMatch: 'full', canActivate: [MyGuard] },
@@ -34,8 +49,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule],
-  declarations: [AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, MyTimePipe, CoursesFilterPipe],
-  providers: [CourseService, AuthorsService, CookieService, MyGuard, { provide: ErrorHandler, useClass: GlobalErrorHandler }],
+  declarations: [AppComponent, LoginComponent, CoursesComponent, AddEditCourseComponent, DateComponent, TimeComponent, 
+                MyTimePipe, CoursesFilterPipe, CounterComponent],
+
+  providers: [CourseService, AuthorsService, CookieService, MyGuard, { provide: ErrorHandler, useClass: GlobalErrorHandler }, { provide: AppStore, useValue: store }],
   bootstrap: [AppComponent]
 })
 
